@@ -1,0 +1,20 @@
+CREATE TABLE country (
+    ID int not null,
+    NAME varchar(20),
+	primary key(id)
+); 
+select * from country;
+INSERT INTO country(ID,NAME)
+VALUES (101, 'England'),
+(102, 'Argentina'),
+(109, 'Portugal'),
+(124, 'Germany'),
+(135, 'Spain'),
+(136, 'Italy'),
+(149, 'Egypt'),
+(158, 'Brazil'),
+(202, 'France');
+
+select club.name from club join country on club.country_id = country.id where country.name = 'England';
+select players.name, club.name, coach.name, country.name from players join club on players.club_id = club.id join coach on players.country_id = coach.country_id join country on coach.country_id = country.id;
+select players.name, country.name from club join players on club.country_id = players.country_id join country on players.country_id = country.id; 
